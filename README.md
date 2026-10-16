@@ -1,5 +1,9 @@
 # TVmaze Show Gallery
 
+## Live site
+
+View the deployed websit - https://maishafyruz.github.io/CSC372_assignment4/
+
 ## Project Description
 
 TVmaze Show Gallery is a searchable TV show website built with HTML, CSS, and JavaScript. The site uses the TVmaze API to search for shows and display information about matching results.
