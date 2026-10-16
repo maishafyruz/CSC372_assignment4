@@ -18,9 +18,40 @@
   <body>
     <header>
       <h1>TVmaze Show Gallery</h1>
+      <p>Search for TV shows and explore show information and cast members.</p>
     </header>
 
     <main>
+      <section id="search-section">
+        <h2>Search for Shows</h2>
+
+        <form id="show-search-form">
+          <label for="show-search">Show title or keyword:</label>
+
+          <input
+            type="text"
+            id="show-search"
+            name="query"
+            placeholder="Example: Friends">
+
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section id="results-section">
+        <h2>Show Results</h2>
+
+        <p id="message"></p>
+
+        <div id="show-gallery"></div>
+      </section>
     </main>
+
+    <footer>
+      <p>
+        Show data provided by
+        <a href="https://www.tvmaze.com/" target="_blank">TVmaze</a>.
+      </p>
+    </footer>
   </body>
 </html>
