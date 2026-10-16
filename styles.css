@@ -81,10 +81,12 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  justify-content: center;
 }
 
 .show-card {
   flex: 1 1 300px;
+  max-width: 380px;
   background-color: white;
   border: 1px solid #cccccc;
   padding: 18px;
