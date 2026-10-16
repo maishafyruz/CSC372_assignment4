@@ -2,7 +2,7 @@
 
 ## Live site
 
-View the deployed websit - https://maishafyruz.github.io/CSC372_assignment4/
+View the deployed website - https://maishafyruz.github.io/CSC372_assignment4/
 
 ## Project Description
 
