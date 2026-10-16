@@ -60,7 +60,7 @@ main {
 }
 
 button {
-  background-color: #283044;
+  background-color: #2f2538;
   color: white;
   border: none;
   padding: 10px 18px;
@@ -101,7 +101,7 @@ button:focus {
 }
 
 .show-card a {
-  color: #283044;
+  color: #4a3363;
   font-weight: bold;
 }
 

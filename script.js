@@ -47,6 +47,8 @@ async function searchShows(searchText) {
     return;
   }
 
+  message.textContent = "Loading shows...";
+
   let apiUrl = new URL("https://api.tvmaze.com/search/shows");
   apiUrl.searchParams.append("q", searchText);
 
@@ -71,10 +73,11 @@ async function searchShows(searchText) {
     let shows = showData.slice(0, 10);
 
     await displayShows(shows);
-  } catch (error) {
-    message.textContent = error.message;
-    console.error("Error fetching shows:", error);
-  }
+    message.textContent = "";
+    } catch (error) {
+        message.textContent = error.message;
+        console.error("Error fetching shows:", error);
+    }
 }
 
 /**
@@ -106,14 +109,24 @@ async function displayShows(shows) {
       poster.src = show.image.medium;
       poster.alt = "Poster for " + show.name;
       card.appendChild(poster);
+    } else {
+      let noPoster = document.createElement("p");
+      noPoster.textContent = "Poster: Not available";
+      card.appendChild(noPoster);
     }
 
     let summary = document.createElement("p");
 
     if (show.summary) {
-      summary.textContent = removeHtml(show.summary);
+        let cleanSummary = removeHtml(show.summary);
+
+    if (cleanSummary.length > 200) {
+        cleanSummary = cleanSummary.slice(0, 200) + "...";
+    }
+
+    summary.textContent = cleanSummary;
     } else {
-      summary.textContent = "Summary: Not available";
+        summary.textContent = "Summary: Not available";
     }
 
     card.appendChild(summary);
@@ -144,9 +157,15 @@ async function displayShows(shows) {
     card.appendChild(rating);
 
     let updated = document.createElement("p");
-    let updatedDate = new Date(show.updated * 1000);
-    updated.textContent = "Last updated: " + updatedDate.toLocaleString();
+
+    if (show.updated) {
+        let updatedDate = new Date(show.updated * 1000);
+        updated.textContent = "Last updated: " + updatedDate.toLocaleString();
+    } else {
+        updated.textContent = "Last updated: Not available";
+    } 
     card.appendChild(updated);
+    
 
     let showLink = document.createElement("a");
     showLink.href = show.url;
